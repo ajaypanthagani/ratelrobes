@@ -4,6 +4,7 @@ html, body {
     width: 100%;
     height: 100%;
     overflow: hidden;
+    font-family: 'Montserrat', sans-serif;  /* Apply the Montserrat font globally */
 }
 
 .video-container {
@@ -62,22 +63,37 @@ video {
 }
 
 .logo img {
-    max-height: 100pt;
+    max-height: 300pt;
     width: auto;
     height: auto;
     max-width: 100%;
     margin-bottom: 20px;
 }
 
+.caption h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
 /* Responsive Logo */
 @media (max-width: 768px) {
     .logo img {
-        max-height: 80pt;  /* Smaller max height for smaller screens */
+        max-height: 150pt;  /* Smaller max height for smaller screens */
+    }
+    .caption h2 {
+        font-size: 28px;
     }
 }
 
 @media (max-width: 480px) {
     .logo img {
-        max-height: 60pt;  /* Even smaller max height for very small screens */
+        max-height: 120pt;  /* Even smaller max height for very small screens */
+    }
+    .caption h2 {
+        font-size: 24px;
     }
 }
