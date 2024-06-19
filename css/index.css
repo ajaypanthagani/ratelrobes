@@ -62,12 +62,40 @@ video {
     text-align: center;
 }
 
+.logo {
+    position: relative;
+}
+
 .logo img {
-    max-height: 300pt;
+    max-height: 100pt;
     width: auto;
     height: auto;
     max-width: 100%;
     margin-bottom: 20px;
+    position: relative;
+    z-index: 3;
+}
+
+.logo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -200%;
+    width: 300%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.8), transparent);
+    z-index: 2;
+    transform: skewX(-20deg);
+    animation: shine 2s forwards;
+}
+
+@keyframes shine {
+    0% {
+        left: -1000%;
+    }
+    100% {
+        left: -80%;
+    }
 }
 
 .caption h2 {
@@ -82,7 +110,7 @@ video {
 /* Responsive Logo */
 @media (max-width: 768px) {
     .logo img {
-        max-height: 150pt;  /* Smaller max height for smaller screens */
+        max-height: 80pt;  /* Smaller max height for smaller screens */
     }
     .caption h2 {
         font-size: 28px;
@@ -91,7 +119,7 @@ video {
 
 @media (max-width: 480px) {
     .logo img {
-        max-height: 120pt;  /* Even smaller max height for very small screens */
+        max-height: 60pt;  /* Even smaller max height for very small screens */
     }
     .caption h2 {
         font-size: 24px;
