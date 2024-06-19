@@ -10,18 +10,21 @@ html, body {
 .video-container {
     position: relative;
     width: 100%;
-    height: 100%;
+    height: 100vh;  /* Use viewport height to ensure full-screen height */
+    overflow: hidden;  /* Hide any overflow */
 }
+
 
 video {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover;  /* Ensures video covers the entire area */
     position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);  /* Center the video */
 }
+
 
 .video-container::before {
     content: '';
@@ -74,6 +77,9 @@ video {
     margin-bottom: 20px;
     position: relative;
     z-index: 3;
+    visibility: hidden; /* Hide the image by default */
+    opacity: 0; /* Initially set opacity to 0 */
+    transition: opacity 1s ease; /* Transition opacity over 1 second */
 }
 
 .logo::before {
