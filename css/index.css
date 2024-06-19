@@ -33,7 +33,7 @@ video {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle, rgba(0,0,0,0.5), rgba(0,0,255,0.5), rgba(255,81,0,0.5));
+    background: radial-gradient(circle, rgba(0,0,0,0.5), rgba(0,0,255,0.5), rgba(255,81,0,0.8));
     opacity: 0.8;
     z-index: 1;
     animation: smoke 10s linear infinite;
@@ -70,37 +70,62 @@ video {
 }
 
 .logo img {
-    max-height: 100pt;
+    max-height: 150pt;
     width: auto;
     height: auto;
     max-width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     position: relative;
     z-index: 3;
     visibility: hidden; /* Hide the image by default */
     opacity: 0; /* Initially set opacity to 0 */
-    transition: opacity 1s ease; /* Transition opacity over 1 second */
+    transition: opacity 3s ease; /* Transition opacity over 1 second */
 }
 
 .logo::before {
     content: '';
     position: absolute;
     top: 0;
-    left: -200%;
+    left: -50%;
     width: 300%;
-    height: 100%;
-    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.8), transparent);
+    height: 150%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+    box-shadow: 0 0 20px 5px orange, 0 0 40px 10px rgba(255, 165, 0, 0.6) inset;
     z-index: 2;
-    transform: skewX(-20deg);
-    animation: shine 2s forwards;
+    /* transform: skewX(-20deg); */
+    animation: shine-left 2s forwards;
 }
 
-@keyframes shine {
+.logo::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: -50%;
+    width: 300%;
+    height: 150%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+    box-shadow: 0 0 20px 5px orange, 0 0 40px 10px rgba(255, 165, 0, 0.6) inset;
+    z-index: 2;
+    /* transform: skewX(-20deg); */
+    animation: shine-right 2s forwards;
+}
+
+@keyframes shine-left {
     0% {
-        left: -1000%;
+        left: -100%;
     }
     100% {
-        left: -80%;
+        left: -90%;
+    }
+}
+
+@keyframes shine-right {
+    0% {
+        right: -100%;
+    }
+    100% {
+        right: -90%;
     }
 }
 
@@ -111,23 +136,26 @@ video {
     margin: 0;
     text-transform: uppercase;
     letter-spacing: 2px;
+    visibility: hidden; /* Hide the image by default */
+    opacity: 0; /* Initially set opacity to 0 */
+    transition: opacity 10s ease; /* Transition opacity over 1 second */
 }
 
 /* Responsive Logo */
 @media (max-width: 768px) {
     .logo img {
-        max-height: 80pt;  /* Smaller max height for smaller screens */
+        max-height: 100pt;  /* Smaller max height for smaller screens */
     }
     .caption h2 {
-        font-size: 28px;
+        font-size: 20px;
     }
 }
 
 @media (max-width: 480px) {
     .logo img {
-        max-height: 60pt;  /* Even smaller max height for very small screens */
+        max-height: 80pt;  /* Even smaller max height for very small screens */
     }
     .caption h2 {
-        font-size: 24px;
+        font-size: 16px;
     }
 }
